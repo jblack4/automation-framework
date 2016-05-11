@@ -1,6 +1,8 @@
 class SigninPage
   include PageObject
 
+  page_url 'http://ec2-54-191-181-182.us-west-2.compute.amazonaws.com/users/sign_in'
+
   link(:sign_up, text: 'Sign up')
   link(:forgot_password, text: 'Forgot your password?')
   text_field(:email, id: 'user_email')
@@ -10,8 +12,8 @@ class SigninPage
 
   def login(params = {})
     email_element.when_present
-    self.email = params[:email] || 'bmayhew@daxko.com'
-    self.password = params[:password] || 'Blue4242'
+    self.email = params[:email] || 'test@test.com'
+    self.password = params[:password] || '123456'
     submit
   end
 end
